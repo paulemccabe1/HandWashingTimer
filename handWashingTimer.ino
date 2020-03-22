@@ -1,6 +1,6 @@
 /*Paul McCabe 3/21/2020 
  *
- *using Moz's 4 Digit 7 Segmetn Display example and Isaac100's ultrasonic sensor example.
+ *using Moz's 4 Digit 7 Segment Display example and Isaac100's ultrasonic sensor example.
  *code write by Moz for YouTube changel LogMaker360, 5-11-2016
  *code belongs to this video, https://www.youtube.com/watch?v=256VQ6eVNng
  *
@@ -20,6 +20,7 @@ int digit4 = 11; //Ones Place
 #define DIGIT_ON  LOW
 #define DIGIT_OFF  HIGH
 
+//Seven Segment Display elements
 int segA = 2; //Top
 int segB = 3; //Top Right
 int segC = 4; //Bottom Right
@@ -28,8 +29,8 @@ int segE = A0;//Bottom Left
 int segF = 7; //Top Left
 int segG = 8; //Middle
 
-int counter =20;
-int timer = 50;
+int counter =20;//20 second counter
+int timer = 50;//Cycles through each second 50 times. Each Display has 2x 10 usec is duration for a total of 1000msec or 1 second
 int resetTimer = 50;
 int endCounter = 11;
 
@@ -95,7 +96,7 @@ void lightNumber(int numberToDisplay) {
 
   switch (numberToDisplay){
 
-  case 0:
+  case 0://Digit 0
     digitalWrite(segA, SEGMENT_ON);
     digitalWrite(segB, SEGMENT_ON);
     digitalWrite(segC, SEGMENT_ON);
@@ -105,7 +106,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_OFF);
     break;
 
-  case 1:
+  case 1://Digit 1
     digitalWrite(segA, SEGMENT_OFF);
     digitalWrite(segB, SEGMENT_ON);
     digitalWrite(segC, SEGMENT_ON);
@@ -115,7 +116,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_OFF);
     break;
 
-  case 2:
+  case 2://Digit 2
     digitalWrite(segA, SEGMENT_ON);
     digitalWrite(segB, SEGMENT_ON);
     digitalWrite(segC, SEGMENT_OFF);
@@ -125,7 +126,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_ON);
     break;
 
-  case 3:
+  case 3://Digit 3
     digitalWrite(segA, SEGMENT_ON);
     digitalWrite(segB, SEGMENT_ON);
     digitalWrite(segC, SEGMENT_ON);
@@ -135,7 +136,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_ON);
     break;
 
-  case 4:
+  case 4://Digit 4
     digitalWrite(segA, SEGMENT_OFF);
     digitalWrite(segB, SEGMENT_ON);
     digitalWrite(segC, SEGMENT_ON);
@@ -145,7 +146,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_ON);
     break;
 
-  case 5:
+  case 5://Digit 5
     digitalWrite(segA, SEGMENT_ON);
     digitalWrite(segB, SEGMENT_OFF);
     digitalWrite(segC, SEGMENT_ON);
@@ -155,7 +156,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_ON);
     break;
 
-  case 6:
+  case 6://Digit 6
     digitalWrite(segA, SEGMENT_ON);
     digitalWrite(segB, SEGMENT_OFF);
     digitalWrite(segC, SEGMENT_ON);
@@ -165,7 +166,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_ON);
     break;
 
-  case 7:
+  case 7://Digit 7
     digitalWrite(segA, SEGMENT_ON);
     digitalWrite(segB, SEGMENT_ON);
     digitalWrite(segC, SEGMENT_ON);
@@ -175,7 +176,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_OFF);
     break;
 
-  case 8:
+  case 8://Digit 8
     digitalWrite(segA, SEGMENT_ON);
     digitalWrite(segB, SEGMENT_ON);
     digitalWrite(segC, SEGMENT_ON);
@@ -185,7 +186,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_ON);
     break;
 
-  case 9:
+  case 9://Digit 9
     digitalWrite(segA, SEGMENT_ON);
     digitalWrite(segB, SEGMENT_ON);
     digitalWrite(segC, SEGMENT_ON);
@@ -195,7 +196,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_ON);
     break;
 
-  case 10:
+  case 10:Digit 10
     digitalWrite(segA, SEGMENT_OFF);
     digitalWrite(segB, SEGMENT_OFF);
     digitalWrite(segC, SEGMENT_OFF);
@@ -205,7 +206,7 @@ void lightNumber(int numberToDisplay) {
     digitalWrite(segG, SEGMENT_OFF);
     break;
     
-  case 11:
+  case 11://Dashes for 3 seconds then turns disply off
     digitalWrite(digit1, DIGIT_ON);
     digitalWrite(digit2, DIGIT_ON);
     digitalWrite(digit3, DIGIT_ON);
